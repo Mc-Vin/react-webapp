@@ -2,7 +2,7 @@ This project was  a mobile web app for food ordering with technologies including
 
 ## Demo
 
-![](D:\web study\itcast\就业班\02练习\09Vue.js\10第十天\vue-admin\src\assets\static\demo\demo.gif)
+![](https://github.com/Mc-Vin/react-webapp/blob/master/src/static/demo/demo.gif)
 
 ## Project Setup
 
