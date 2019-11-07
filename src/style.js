@@ -46,4 +46,7 @@ export const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+    body::-webkit-scrollbar {
+        display: none;
+    }
 `

@@ -1,0 +1,66 @@
+.merchant-box{
+    display:flex;
+    flex-direction:column;
+    width:100%; 
+    .merchant-content{
+        position:relative;
+        width:100%;
+        padding:25px 0;
+        border-bottom:1px solid #f4f4f4;
+        .merchant-img{
+            float:left;
+            width:70px;
+            height:auto;
+            img{
+                display:block;
+                width:100%;
+                height:100%;
+            }
+        }
+        .merchant-des{
+            width:270px;
+            height:57px;
+            float:right;
+            .des-title{
+                font-size:16px;
+            }
+            .num-rating{
+                font-size:11px;
+                margin:10px 0;
+                .rating{
+                    float:left;
+                    margin-right:10px;
+                    .MuiSvgIcon-root{
+                        width:10px;
+                        height:10px;
+                    }
+                }
+                .time-distance{
+                    float:right;
+                    .line{
+                        margin:0 5px;
+                    }
+                }
+            }
+            .price-time{
+                font-size:11px;
+                .line{
+                    margin:0 5px;
+                }
+            }
+        }
+        .special{
+            position:absolute;
+            right:12px;
+            bottom:5px;
+            font-weight:500;
+            width:70px;
+            height:25px;
+            background-color: #ffd161;
+            border-radius:2px;
+            text-align:center;
+            line-height:25px;
+            font-size:14px;
+        }
+    }
+}

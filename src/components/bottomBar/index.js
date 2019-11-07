@@ -1,19 +1,40 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link as NavLink } from 'react-router-dom';
 import { BottomBarWrapper } from './style';
 import { connect } from 'react-redux';
+import { actionCreators } from './store';
+import { withRouter } from 'react-router-dom';
 
 
 class BottomBar extends React.Component{
+    componentWillMount(){
+        const path=this.props.location.pathname.replace(/[^a-zA-Z0-9]/,'');
+        this.props.handleNavClick(path);
+    }
+
     barRender(){
-        const { tabs }=this.props;
+        const { tabs, activeKey, handleNavClick }=this.props;
         return (
-            tabs.map((tabItem)=>(
-            <NavLink to={`/`+`${tabItem.key}`} className='btn-bar' key={tabItem.name}>
-                <div className={`bar-icon ${tabItem.key}`}></div>
-                <div className='bar-key'>{tabItem.name}</div>
-            </NavLink>
-            ))
+            tabs.map((tabItem)=>{
+                let activeClass;
+                if(tabItem.key===activeKey){
+                    activeClass=`btn-bar active`;
+                }else{
+                    activeClass=`btn-bar`;
+                }
+                return (
+                    <NavLink 
+                        to={`/${tabItem.key}`} 
+                        className={activeClass} 
+                        key={tabItem.name} 
+                        // activeClassName={'btn-bar active'}
+                        onClick={()=>handleNavClick(tabItem.key)}
+                    >
+                        <div className={`bar-icon ${tabItem.key}`}></div>
+                        <div className='bar-key'>{tabItem.name}</div>
+                    </NavLink>
+                );
+            })
         );
     }
 
@@ -24,8 +45,17 @@ class BottomBar extends React.Component{
 
 const mapStateToProps=(state)=>{
     return {
-        tabs:state.tab.tabs
+        tabs:state.tab.tabs,
+        activeKey:state.tab.activeKey
     }
 }
 
-export default connect(mapStateToProps, null)(BottomBar)
+const mapDispatchToProps=(dispatch)=>{
+    return {
+        handleNavClick(key){
+            dispatch(actionCreators.changeActivekeyAction(key))
+        }
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BottomBar))

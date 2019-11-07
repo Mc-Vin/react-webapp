@@ -1,4 +1,5 @@
 import TABKEY from '../config';
+import { actionTypes } from './index';
 
 const defaultState={
     tabs:[
@@ -14,10 +15,17 @@ const defaultState={
             name:'我的',
             key:TABKEY.account
         },
-
-    ]
+    ],
+    activeKey:TABKEY.home
 }
 
 export default (state=defaultState,action)=>{
-    return state;
+    switch(action.type){
+        case actionTypes.CHANGE_ACTIVEKRY:
+            const newState=JSON.parse(JSON.stringify(state));
+            newState.activeKey=action.activeKey;
+            return newState;
+        default:
+            return state;
+    }
 }
