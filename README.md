@@ -2,7 +2,7 @@ This project was  a mobile web app for food ordering with technologies including
 
 ## Demo
 
-![](C:\Users\Administrator\Desktop\demo4.gif)
+![](C:\Users\Administrator\Desktop\demo.gif)
 
 ## Project Setup
 
