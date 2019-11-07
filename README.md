@@ -2,7 +2,7 @@ This project was  a mobile web app for food ordering with technologies including
 
 ## Demo
 
-![](C:\Users\Administrator\Desktop\demo.gif)
+![](https://github.com/Mc-Vin/react-webapp/blob/master/src/static/demo/demo.gif)
 
 ## Project Setup
 
